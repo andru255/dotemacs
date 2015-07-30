@@ -152,11 +152,46 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   (set-buffer-file-coding-system 'undecided-dos nil))
 
 (defun require-package (package)
-  "Ensures that PACKAGE is installed."
-  (unless (or (package-installed-p package)
-              (require package nil 'noerror))
-    (unless (assoc package package-archive-contents)
-      (package-refresh-contents))
-    (package-install package)))
+    "Ensures that PACKAGE is installed."
+    (unless (or (package-installed-p package)
+                (require package nil 'noerror))
+        (unless (assoc package package-archive-contents)
+            (package-refresh-contents))
+        (package-install package)))
 
+;; for writing
+(defun insert-hash ()
+    (interactive)
+    (insert 35)
+    )
+
+(defun insert-slash ()
+    (interactive)
+    (insert 92)
+    )
+
+(defun insert-space ()
+    (interactive)
+    (insert 32)
+    )
+
+(defun insert-arroba ()
+    (interactive)
+    (insert 64))
+
+;; for play with lines like sublime
+;; move line-up
+(defun move-line-up ()
+    (interactive)
+    (transpose-lines 1)
+    (previous-line 2)
+    )
+
+;; move line-up
+(defun move-line-up ()
+    (interactive)
+    (transpose-lines 1)
+    (previous-line 2)
+    )
+(insert "loaded init util")
 (provide 'init-util)

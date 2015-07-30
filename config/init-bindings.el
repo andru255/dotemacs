@@ -1,9 +1,21 @@
 (defmacro bind (&rest commands)
-  "Convience macro which creates a lambda interactive command."
-  `(lambda ()
-     (interactive)
-     ,@commands))
+    "Convience macro which creates a lambda interactive command."
+    `(lambda ()
+         (interactive)
+         ,@commands))
 
+;; global binding
+(when (fboundp 'windmove-default-keybindings)
+    (windmove-default-keybindings))
+
+(after 'util
+    (global-set-key (kbd "C-M-<down>") 'move-line-down)
+    (global-set-key (kbd "SPC") 'insert-space)
+    (global-set-key (kbd "M-o") 'other-window)
+    (global-set-key (kbd "M-ª") 'insert-slash)
+    (global-set-key (kbd "M-3") 'insert-hash)
+    (global-set-key (kbd "M-2") 'insert-arroba)
+    )
 
 (require-package 'guide-key)
 (require 'guide-key)

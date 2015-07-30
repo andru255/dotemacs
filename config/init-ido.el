@@ -13,10 +13,10 @@
   (ido-vertical-mode))
 
 (when (eq dotemacs-switch-engine 'ido)
-  (ido-mode t)
-  (ido-everywhere t)
+    (ido-mode t)
+    (ido-everywhere t)
 
-  (require-package 'ido-ubiquitous)
-  (ido-ubiquitous-mode t))
+    (require-package 'ido-ubiquitous)
+    (ido-ubiquitous-mode t))
 
 (provide 'init-ido)
